@@ -3,9 +3,9 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14  
+      nodejs: 12  
     commands:
-      - echo installing node 16x...
+      - echo installing node 12x...
       # install node 14x
       # Using Ubuntu
       # - npm install -g n
