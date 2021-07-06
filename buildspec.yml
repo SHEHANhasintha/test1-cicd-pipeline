@@ -33,7 +33,7 @@ phases:
       # build
       - yarn build
 
-  artifacts:
+  post_build:
     files:
       - "**/*"
     discard-paths: no
