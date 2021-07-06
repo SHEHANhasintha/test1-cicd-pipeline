@@ -8,8 +8,8 @@ phases:
       - echo installing node 16x...
       # install node 14x
       # Using Ubuntu
-      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
-      - apt-get install -y nodejs
+      - npm install -g n
+      - n 14.17.3
 
       - echo installing yarn!
       # install yarn
