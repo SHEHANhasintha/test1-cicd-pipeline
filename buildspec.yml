@@ -3,13 +3,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 10  
+      nodejs: 14  
     commands:
       - echo installing node 16x...
       # install node 14x
       # Using Ubuntu
-      - npm install -g n
-      - n 14.17.3
+      # - npm install -g n
+      # - n 14.17.3
 
       - echo installing yarn!
       # install yarn
