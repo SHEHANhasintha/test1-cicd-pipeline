@@ -3,18 +3,18 @@ version 0.2
 phases:
   install:
     commands:
-      - echo installing node 14x
+      - echo installing node 14x...
       # install node 14x
       # Using Ubuntu
       - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
       - apt install -y nodejs
 
-      - installing yarn
+      - echo installing yarn!
       # install yarn
       - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
       - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list  
 
-      - successfully installed yarn
+      - echo successfully installed yarn!
       - sudo apt install --no-install-recommends yarn
 
   pre_Build:
@@ -29,7 +29,7 @@ phases:
       # tests
       - yarn test
 
-      - yarn building...
+      - echo yarn building...
       # build
       - yarn build
 
