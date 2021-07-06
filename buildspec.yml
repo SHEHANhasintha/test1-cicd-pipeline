@@ -33,9 +33,9 @@ phases:
       # build
       - yarn build
 
-  post_build:
-    files:
-      - "**/*"
-    discard-paths: no
-    base-directory: build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: build
 
