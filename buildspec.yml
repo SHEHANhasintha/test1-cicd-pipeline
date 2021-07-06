@@ -17,7 +17,7 @@ phases:
       - echo successfully installed yarn!
       - sudo apt install --no-install-recommends yarn
 
-  pre_Build:
+  pre_build:
     commands:
       # install dependencies
       - echo installing dependencies...
