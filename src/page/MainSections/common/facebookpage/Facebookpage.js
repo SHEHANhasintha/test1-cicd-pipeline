@@ -95,8 +95,10 @@ function Facebookpage(props) {
           // window.location = URI;
         }
         data = data.json();
-        setAccessToken(data.access_token);
-        console.log(accessTokenClient);
+        // setAccessToken(data.access_token);
+        // console.log(accessTokenClient);
+        setAccessToken("torpidooo");
+      console.log(accessTokenClient);
   
         // return;
   
