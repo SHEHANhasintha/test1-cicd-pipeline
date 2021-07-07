@@ -73,32 +73,32 @@ function Facebookpage(props) {
       console.log(accessTokenClient);
   
   
-      // const queryString = window.location.search;
-      // console.log(queryString);
-      // const urlParameters = new URLSearchParams(queryString);
+      const queryString = window.location.search;
+      console.log(queryString);
+      const urlParameters = new URLSearchParams(queryString);
   
   
-      // if (urlParameters.has('code')) {
-      //   const facebookAuthenticationCode = urlParameters.get('code');
-      //   let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
+      if (urlParameters.has('code')) {
+        const facebookAuthenticationCode = urlParameters.get('code');
+        let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
   
   
   
-      //   let data = await postData(accessUrl,undefined,'POST')
+        let data = await postData(accessUrl,undefined,'POST')
   
-      //   if (data.status == 400) {
-      //     console.log("capability");
-      //     // window.location = URI;
-      //   }
-      //   data = data.json();
-      //   setAccessToken(data.access_token);
-      //   console.log(accessTokenClient);
+        if (data.status == 400) {
+          console.log("capability");
+          window.location = URI;
+        }
+        data = data.json();
+        setAccessToken(data.access_token);
+        console.log(accessTokenClient);
   
-      //   return;
+        return;
   
-      // } else {
-      //   window.location = URI;
-      // }
+      } else {
+        window.location = URI;
+      }
   
     }
 
