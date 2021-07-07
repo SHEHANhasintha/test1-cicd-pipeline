@@ -83,8 +83,9 @@ function Facebookpage(props) {
     
     let accessKey = getAccessKey()
     .then((data) => {
-      console.log(data,"bbbbbbbbbbbbb");
+      return data;
     })
+    console.log(accessKey,"bbbbbbbbbbbbb");
 
     
     return;
