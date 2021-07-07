@@ -63,7 +63,7 @@ function Facebookpage(props) {
 
       if (data.status == 400) {
         console.log("capability");
-        window.location = URI;
+        // window.location = URI;
       }
       data = data.json();
       setAccessToken(data.access_token);
