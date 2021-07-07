@@ -14,13 +14,13 @@ function App() {
       <Router>
 
         <Switch>
-          <Route path="/about">
+          <Route path="/about" exact>
             <MainSections/> 
           </Route>
-          <Route path="/users">
+          <Route path="/users" exact>
             <MainSections/> 
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <MainSections/> 
           </Route>
         </Switch>
