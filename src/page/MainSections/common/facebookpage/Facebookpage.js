@@ -64,7 +64,7 @@ function Facebookpage(props) {
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
       
       let data = await postData(accessUrl)
-      console.log(data.json()  +"dataaaa");
+      console.log(data  +"dataaaa");
       if (data.status == 400){
         window.location = URI;
       }
@@ -81,9 +81,12 @@ function Facebookpage(props) {
 
   useEffect(function () {
     
-    let accessKey = getAccessKey();
+    let accessKey = getAccessKey()
+    .then((data) => {
+      console.log(data + "dfdfdfd");
+    })
 
-    console.log(accessKey + "dfdfdfd");
+    
     return;
   }, []);
 
