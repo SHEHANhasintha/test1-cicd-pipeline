@@ -13,7 +13,7 @@ import {
 import './Facebookpage.scss'
 
 function Facebookpage(props) {
-  const [fbAuthCode, setFaceBookAuthCode] = useState('');
+  const [accessToken, setAccessToken] = useState('');
   // let history = useHistory();
   const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
 
@@ -50,7 +50,6 @@ function Facebookpage(props) {
 
     if (urlParameters.has('code')) {
       const facebookAuthenticationCode = urlParameters.get('code');
-      setFaceBookAuthCode(facebookAuthenticationCode);
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
       
       let data = await postData(accessUrl)
@@ -73,6 +72,7 @@ function Facebookpage(props) {
     getAccessKey()
       .then((data) => {
         console.log(data);
+        setAccessToken({accessToken: data.access_token});
         return data;
       })
 
@@ -82,7 +82,7 @@ function Facebookpage(props) {
 
   return (
     <>
-      ghghghghghg
+      {accessToken}
 
 
 
