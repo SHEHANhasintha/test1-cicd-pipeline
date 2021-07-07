@@ -38,8 +38,9 @@ function Facebookpage(props) {
     })
     .then(res => {
       if (res.status == 400){
+        console.log("nannnnnn")
         return false;
-      }
+      }else
       return res})
 
 
