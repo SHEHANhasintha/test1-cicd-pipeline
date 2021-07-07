@@ -44,6 +44,10 @@ function Facebookpage(props) {
 
   const getAccessKeyClient = async () => {
 
+    setAccessToken("torpidooo");
+    console.log(accessTokenClient);
+
+
     const queryString = window.location.search;
     console.log(queryString);
     const urlParameters = new URLSearchParams(queryString);
@@ -56,12 +60,14 @@ function Facebookpage(props) {
 
 
       let data = await postData(accessUrl,undefined,'POST')
-      setAccessToken(data.json().access_token);
-      console.log(accessTokenClient);
 
       if (data.status == 400) {
+        console.log("capability");
         window.location = URI;
       }
+      data = data.json();
+      setAccessToken(data.access_token);
+      console.log(accessTokenClient);
 
       return;
 
@@ -94,18 +100,18 @@ function Facebookpage(props) {
 
   useEffect(function () {
 
-
+    getAccessKeyClient();
 
 
     return;
-  }, [accessTokenClient, accessTokenPage]);
+  }, [accessTokenClient]);
 
   return (
     <>
 
-      {
+      {/* {
         () => {
-          getAccessKeyClient()
+          return(getAccessKeyClient())
           // .then(() => {
           //   getAccessKeyPage().then((res) => {
           //     console.log(res)
@@ -113,7 +119,7 @@ function Facebookpage(props) {
           //   })
           // })
         }
-      }
+      } */}
 
 
     </>
