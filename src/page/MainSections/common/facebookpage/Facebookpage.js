@@ -21,10 +21,10 @@ function Facebookpage(props) {
     e.preventDefault();
   }
 
-  async function postData(url = '', data = {}) {
+  async function postData(url = '', data = {}, method='GET') {
 
     const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      method, // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
@@ -52,7 +52,9 @@ function Facebookpage(props) {
       const facebookAuthenticationCode = urlParameters.get('code');
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
 
-      let data = await postData(accessUrl)
+
+
+      let data = await postData(accessUrl,undefined,'POST')
       if (data.status == 400) {
         window.location = URI;
       }
@@ -94,7 +96,7 @@ function Facebookpage(props) {
         return data;
       })
       .then(() => {
-        getAccessKeyPage().then((res) => {console.log(res.json())})
+        getAccessKeyPage().then((res) => {console.log(res)})
       })
 
 
