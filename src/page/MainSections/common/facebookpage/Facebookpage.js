@@ -15,6 +15,7 @@ import './Facebookpage.scss'
 function Facebookpage(props) {
   const [fbAuthCode, setFaceBookAuthCode] = useState('');
   // let history = useHistory();
+  const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
 
   const clicked = (e) => {
     e.preventDefault();
@@ -34,14 +35,14 @@ function Facebookpage(props) {
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return (response.json())
+    }).catch(err => {return false})
+
+    return (response)
 
   };
 
-  const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
 
-  const getQueryString = () => {
+  const getAccessKey = async () => {
 
     const queryString = window.location.search;
     console.log(queryString);
@@ -52,11 +53,12 @@ function Facebookpage(props) {
       const facebookAuthenticationCode = urlParameters.get('code');
       setFaceBookAuthCode(facebookAuthenticationCode);
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
-      let data = postData(accessUrl)
-        .then(data => { return (data) });
-      if (data.statusCode == 400){
-        window.location = URI;
-      }
+      
+      let data = await postData(accessUrl)
+        .then(data => { return (data) })
+        .catch(err => { return false })
+
+      return data;
 
     } else {
       window.location = URI;
@@ -67,7 +69,12 @@ function Facebookpage(props) {
   }
 
   useEffect(function () {
-    getQueryString();
+    let accessKey = false;
+    while (!accessKey){
+      accessKey = getAccessKey();
+      
+    }
+
     console.log(fbAuthCode);
     return;
   }, []);
