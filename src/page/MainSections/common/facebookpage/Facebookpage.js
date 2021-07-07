@@ -41,7 +41,7 @@ function Facebookpage(props) {
         console.log("nannnnnn")
         return false;
       }else
-      return res})
+      return res.json()})
 
 
   };
@@ -61,10 +61,11 @@ function Facebookpage(props) {
       
       let data = await postData(accessUrl)
         .then(data => { 
-          if (data){
-            return data.json();
-          }
           console.log(data  +"dataaaa");
+          if (!data){
+            window.location = URI;
+          }
+          
           return (data)
         });
 
@@ -80,11 +81,7 @@ function Facebookpage(props) {
 
   useEffect(function () {
     let accessKey = false;
-    while (!accessKey){
-      accessKey = getAccessKey()
-      .then(data => {return(data)})
-      
-    }
+    accessKey = getAccessKey();
 
     console.log(accessKey);
     return;
