@@ -22,50 +22,54 @@ function Facebookpage(props) {
     e.preventDefault();
   }
 
-  async function postData(url = '', body = undefined, method='GET') {
-
-    const response = await fetch(url, {
-      method, // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        // 'Content-Type': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: 'follow', // manual, *follow, error
-      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body
-    })
-    return response;
-
-  };
 
 
 
 
-  const getAccessKeyPage = async () => {
 
-    const queryString = window.location.search;
-    console.log(queryString);
-    const urlParameters = new URLSearchParams(queryString);
+  // const getAccessKeyPage = async () => {
 
-    console.log(accessTokenClient, "non of my business");
+  //   const queryString = window.location.search;
+  //   console.log(queryString);
+  //   const urlParameters = new URLSearchParams(queryString);
 
-    if (urlParameters.has('code')) {
-      let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
+  //   console.log(accessTokenClient, "non of my business");
+
+  //   if (urlParameters.has('code')) {
+  //     let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
      
-      let data = await postData(accessUrl)
+  //     let data = await postData(accessUrl)
 
-      return data.json();
+  //     return data.json();
 
-    } else {
-      window.location = URI;
-    }
+  //   } else {
+  //     window.location = URI;
+  //   }
 
-  }
+  // }
 
   useEffect(function () {
+
+
+    async function postData(url = '', body = undefined, method='GET') {
+
+      const response = await fetch(url, {
+        method, // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          // 'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body
+      })
+      return response;
+  
+    };
+
 
     const getAccessKeyClient = async () => {
 
@@ -91,8 +95,8 @@ function Facebookpage(props) {
           // window.location = URI;
         }
         data = data.json();
-        // setAccessToken(data.access_token);
-        // console.log(accessTokenClient);
+        setAccessToken(data.access_token);
+        console.log(accessTokenClient);
   
         // return;
   
