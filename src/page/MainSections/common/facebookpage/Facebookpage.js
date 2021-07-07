@@ -14,7 +14,7 @@ import './Facebookpage.scss'
 
 function Facebookpage(props) {
   const [fbAuthCode,setFaceBookAuthCode] = useState('');
-  let history = useHistory();
+  // let history = useHistory();
 
   const clicked = (e) => {
     e.preventDefault();
@@ -35,6 +35,7 @@ function Facebookpage(props) {
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
+    console.log(response);
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
@@ -50,7 +51,7 @@ function Facebookpage(props) {
       setFaceBookAuthCode(facebookAuthenticationCode);
       console.log(facebookAuthenticationCode)
       // facebookAuthenticationCode = 'AQDlo_X6Zpj3ld7BAeVv4eS2wzsOMo7-mpRprCf1j8bjfdsirm1MgREdBW6Bam47I9FDNx5gw57Wpahy3XL0j1bbr7tbdfTxTTFaRtaR59nEDptPrW4Z1Vcg3pxL53heTg5XRsRnrTOcrAK-kPHdXr4Ip9mIqO58uSpbSzmV4lG0eL_A7SsxxZ3rw67wLGWjcHn9-qdzcFZPMZVSScglJm4gxYd3luXbX9oG6pID5k9A4l7fKe631u0X4UflW0Kg_BqdUJsoKWYGp2xQqyijdZ2U-tw1gcjL0fKc_j1L2Av2RQ6KVpb9_wEGqcjf3AgN8CHrn88MTP6RNADa0ei2oPYMtcNoNy-6nvhcyIUc3Qb5cQ#_=_';
-      let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`
+      let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
 
       console.log(postData(accessUrl));
     }else{
