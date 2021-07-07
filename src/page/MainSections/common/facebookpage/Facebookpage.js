@@ -56,11 +56,14 @@ function Facebookpage(props) {
 
 
       let data = await postData(accessUrl,undefined,'POST')
+      setAccessToken(data.json().access_token);
+      console.log(accessTokenClient);
+
       if (data.status == 400) {
         window.location = URI;
       }
 
-      return data.json();
+      return;
 
     } else {
       window.location = URI;
@@ -91,19 +94,7 @@ function Facebookpage(props) {
 
   useEffect(function () {
 
-    getAccessKeyClient()
-      .then((data) => {
-        console.log(data);
-        setAccessToken(data.access_token);
-        console.log(accessTokenClient);
-        return data;
-      })
-      .then(() => {
-        getAccessKeyPage().then((res) => {
-          console.log(res)
-        
-        })
-      })
+
 
 
     return;
@@ -112,7 +103,17 @@ function Facebookpage(props) {
   return (
     <>
 
-
+      {
+        () => {
+          getAccessKeyClient()
+          // .then(() => {
+          //   getAccessKeyPage().then((res) => {
+          //     console.log(res)
+            
+          //   })
+          // })
+        }
+      }
 
 
     </>
