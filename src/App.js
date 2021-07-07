@@ -20,7 +20,7 @@ function App() {
           <Route path="/users" exact>
             <MainSections/> 
           </Route>
-          <Route path="/" exact>
+          <Route path="/" >
             <MainSections/> 
           </Route>
         </Switch>
