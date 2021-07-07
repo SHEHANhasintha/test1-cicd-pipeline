@@ -36,6 +36,8 @@ function Facebookpage(props) {
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     })
+    
+    response
     .then(res => {
       if (res.status == 400){
         console.log("nannnnnn")
@@ -44,7 +46,7 @@ function Facebookpage(props) {
         return res.json()
       })
 
-      return await response;
+      // return response;
 
   };
 
