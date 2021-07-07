@@ -41,8 +41,10 @@ function Facebookpage(props) {
         console.log("nannnnnn")
         return false;
       }else
-      return res.json()})
+        return res.json()
+      })
 
+      return response;
 
   };
 
