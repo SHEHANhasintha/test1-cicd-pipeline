@@ -89,13 +89,17 @@ function Facebookpage(props) {
   
   
         let data = await postData(accessUrl,undefined,'POST')
+                      .then((res) => {
+                        setAccessToken(res.json().access_token)
+
+                      })
   
-        if (data.status == 400) {
-          console.log("capability");
-          window.location = URI;
-        }
-        data = data.json();
-        const access_token = data.access_token;
+        // if (data.status == 400) {
+        //   console.log("capability");
+        //   window.location = URI;
+        // }
+        // data = data.json();
+        // const access_token = data.access_token;
         // setAccessToken(data.access_token);
         // console.log(accessTokenClient);
         // setAccessToken(access_token);
