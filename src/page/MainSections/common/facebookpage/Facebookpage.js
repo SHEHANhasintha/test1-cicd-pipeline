@@ -37,16 +37,16 @@ function Facebookpage(props) {
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     })
     
-    response
-    .then(res => {
-      if (res.status == 400){
-        console.log("nannnnnn")
-        return false;
-      }else
-        return res.json()
-      })
+    // if(response
+    // .then(res => {
+    //   if (res.status == 400){
+    //     console.log("nannnnnn")
+    //     return false;
+    //   }else
+    //     return res.json()
+    //   })
 
-      // return response;
+      return response;
 
   };
 
@@ -64,13 +64,13 @@ function Facebookpage(props) {
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
       
       let data = await postData(accessUrl)
-        .then(data => { 
+        .then(res => { 
           console.log(data  +"dataaaa");
-          if (!data){
+          if (res.status == 400){
             window.location = URI;
           }
-          
-          return data
+
+          return res.json();
         });
 
       return data;
