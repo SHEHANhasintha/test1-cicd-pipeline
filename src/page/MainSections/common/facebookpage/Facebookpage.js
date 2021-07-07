@@ -73,6 +73,7 @@ function Facebookpage(props) {
     console.log(queryString);
     const urlParameters = new URLSearchParams(queryString);
 
+    console.log(accessTokenClient, "non of my business");
 
     if (urlParameters.has('code')) {
       let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
