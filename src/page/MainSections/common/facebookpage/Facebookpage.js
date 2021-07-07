@@ -80,7 +80,7 @@ function Facebookpage(props) {
       
     }
 
-    console.log(fbAuthCode);
+    console.log(accessKey);
     return;
   }, []);
 
