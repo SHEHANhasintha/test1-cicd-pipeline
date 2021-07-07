@@ -18,15 +18,16 @@ function Facebookpage(props) {
   }
 
   useEffect(function () {
-    return function cleanup() {
-    }
+    getQueryString();
+
+    return;
   }, []);
 
   return (
     <>
       ghghghghghg
 
-
+      
 
     </>
 
