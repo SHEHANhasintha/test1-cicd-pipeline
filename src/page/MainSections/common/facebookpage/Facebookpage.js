@@ -14,6 +14,7 @@ import './Facebookpage.scss'
 
 function Facebookpage(props) {
   const [accessTokenClient, setAccessToken] = useState(false);
+  const [accessTokenPage, setAccessTokenPage] = useState(false);
   // let history = useHistory();
   const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
 
@@ -90,7 +91,6 @@ function Facebookpage(props) {
 
   useEffect(function () {
 
-    setAccessToken("carbohightrate");
     getAccessKeyClient()
       .then((data) => {
         console.log(data);
@@ -99,12 +99,15 @@ function Facebookpage(props) {
         return data;
       })
       .then(() => {
-        getAccessKeyPage().then((res) => {console.log(res)})
+        getAccessKeyPage().then((res) => {
+          console.log(res)
+        
+        })
       })
 
 
     return;
-  }, []);
+  }, [accessTokenClient, accessTokenPage]);
 
   return (
     <>
