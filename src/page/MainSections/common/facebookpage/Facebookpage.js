@@ -55,8 +55,12 @@ function Facebookpage(props) {
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
       
       let data = await postData(accessUrl)
-        .then(data => { return (data) })
-        .catch(err => { return false })
+        .then(data => { 
+          console.log(data  +"dataaaa");
+          return (data.json()) })
+        .catch(err => { 
+          console.log(err + "errrrr")
+          return false })
 
       return data;
 
@@ -71,7 +75,8 @@ function Facebookpage(props) {
   useEffect(function () {
     let accessKey = false;
     while (!accessKey){
-      accessKey = getAccessKey();
+      accessKey = getAccessKey()
+      .then(data => {return(data)})
       
     }
 
