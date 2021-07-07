@@ -13,7 +13,7 @@ import {
 import './Facebookpage.scss'
 
 function Facebookpage(props) {
-  const [accessToken, setAccessToken] = useState('');
+  const [accessTokenClient, setAccessToken] = useState(false);
   // let history = useHistory();
   const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
 
@@ -41,7 +41,7 @@ function Facebookpage(props) {
   };
 
 
-  const getAccessKey = async () => {
+  const getAccessKeyClient = async () => {
 
     const queryString = window.location.search;
     console.log(queryString);
@@ -51,9 +51,9 @@ function Facebookpage(props) {
     if (urlParameters.has('code')) {
       const facebookAuthenticationCode = urlParameters.get('code');
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
-      
+
       let data = await postData(accessUrl)
-      if (data.status == 400){
+      if (data.status == 400) {
         window.location = URI;
       }
 
@@ -63,26 +63,47 @@ function Facebookpage(props) {
       window.location = URI;
     }
 
+  }
 
+  const getAccessKeyPage = async () => {
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParameters = new URLSearchParams(queryString);
+
+
+    if (urlParameters.has('code')) {
+      let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
+     
+      let data = await postData(accessUrl)
+
+      return data.json();
+
+    } else {
+      window.location = URI;
+    }
 
   }
 
   useEffect(function () {
-    
-    getAccessKey()
+
+    getAccessKeyClient()
       .then((data) => {
         console.log(data);
-        setAccessToken({accessToken: data.access_token});
+        setAccessToken({ accessTokenClient: data.access_token });
         return data;
       })
+      .then(() => {
+        getAccessKeyPage().then((res) => {console.log(res.json())})
+      })
 
-    
+
     return;
   }, []);
 
   return (
     <>
-      ffffffffffff
+
 
 
 
