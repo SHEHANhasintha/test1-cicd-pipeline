@@ -65,7 +65,7 @@ function Facebookpage(props) {
       
       let data = await postData(accessUrl)
         .then(res => { 
-          console.log(data  +"dataaaa");
+          console.log(res  +"dataaaa");
           if (res.status == 400){
             window.location = URI;
           }
