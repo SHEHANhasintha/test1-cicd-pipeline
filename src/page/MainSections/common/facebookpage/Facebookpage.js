@@ -36,8 +36,11 @@ function Facebookpage(props) {
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     })
-    .then(res => {return res})
-    .catch(err => {return false})
+    .then(res => {
+      if (res.status == 400){
+        return false;
+      }
+      return res})
 
 
   };
@@ -57,11 +60,12 @@ function Facebookpage(props) {
       
       let data = await postData(accessUrl)
         .then(data => { 
+          if (data){
+            return data.json();
+          }
           console.log(data  +"dataaaa");
-          return (data.json()) })
-        .catch(err => { 
-          console.log(err + "errrrr")
-          return false })
+          return (data)
+        });
 
       return data;
 
