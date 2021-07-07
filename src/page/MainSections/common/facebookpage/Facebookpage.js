@@ -91,13 +91,13 @@ function Facebookpage(props) {
           // window.location = URI;
         }
         data = data.json();
-        setAccessToken(data.access_token);
-        console.log(accessTokenClient);
+        // setAccessToken(data.access_token);
+        // console.log(accessTokenClient);
   
         // return;
   
       } else {
-        window.location = URI;
+        // window.location = URI;
       }
   
     }
