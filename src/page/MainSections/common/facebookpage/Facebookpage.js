@@ -44,7 +44,7 @@ function Facebookpage(props) {
         return res.json()
       })
 
-      return response;
+      return await response;
 
   };
 
@@ -68,7 +68,7 @@ function Facebookpage(props) {
             window.location = URI;
           }
           
-          return (data)
+          return data
         });
 
       return data;
