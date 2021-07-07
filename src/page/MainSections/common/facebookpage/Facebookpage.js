@@ -93,7 +93,7 @@ function Facebookpage(props) {
     getAccessKeyClient()
       .then((data) => {
         console.log(data);
-        setAccessToken({ accessTokenClient: data.access_token });
+        setAccessToken(data.access_token);
         return data;
       })
       .then(() => {
