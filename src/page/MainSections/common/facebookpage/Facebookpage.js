@@ -4,7 +4,7 @@ import './Facebookpage.scss'
 
 function Facebookpage(props) {
 
-  const [setFaceBookAuthCode,fbAuthCode] = useState('');
+  const [fbAuthCode,setFaceBookAuthCode] = useState('');
 
   const clicked = (e) => {
     e.preventDefault();
