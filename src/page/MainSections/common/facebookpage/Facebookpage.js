@@ -35,7 +35,7 @@ function Facebookpage(props) {
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     }).then(res => res.text())
-      .then(result => {result(result)});
+      .then(result => {return(result)});
     // let res =  response.text();
     
     console.log(response);
@@ -57,7 +57,7 @@ function Facebookpage(props) {
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
       console.log(accessUrl);
       const accessToken = postData(accessUrl);
-      console.log();
+      console.log(accessToken);
     }else{
       window.location = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
     }
