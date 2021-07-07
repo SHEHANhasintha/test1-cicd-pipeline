@@ -90,10 +90,12 @@ function Facebookpage(props) {
 
   useEffect(function () {
 
+    setAccessToken("carbohightrate");
     getAccessKeyClient()
       .then((data) => {
         console.log(data);
         setAccessToken(data.access_token);
+        console.log(accessTokenClient);
         return data;
       })
       .then(() => {
