@@ -100,7 +100,7 @@ function Facebookpage(props) {
 
   useEffect(function () {
 
-    getAccessKeyClient();
+    // getAccessKeyClient();
 
 
     return;
