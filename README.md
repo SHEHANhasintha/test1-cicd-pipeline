@@ -10,8 +10,8 @@ https://www.facebook.com/v11.0/dialog/oauth?
   &redirect_uri=https%3A%2F%2Fcicd-pipeline-react-app-test1.s3.eu-west-1.amazonaws.com%2F
 
 
-# Encoded uri: https%3A%2F%2Fcicd-pipeline-react-app-test1.s3.eu-west-1.amazonaws.com%2Findex.html
+# Encoded uri: https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F
 
 https://www.facebook.com/v11.0/dialog/oauth?
   client_id=232331721389865
-  &redirect_uri=https%3A%2F%2Fcicd-pipeline-react-app-test1.s3.eu-west-1.amazonaws.com%2Findex.html
+  &redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F

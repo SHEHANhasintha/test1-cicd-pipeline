@@ -8,6 +8,15 @@ function Facebookpage(props) {
     e.preventDefault();
   }
 
+  const getQueryString = () => {
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParameters = new URLSearchParams(queryString);
+    const facebookAuthenticationCode = urlParameters.get('code');
+    console.log(facebookAuthenticationCode);
+
+  }
+
   useEffect(function () {
     return function cleanup() {
     }
@@ -16,6 +25,9 @@ function Facebookpage(props) {
   return (
     <>
       ghghghghghg
+
+
+
     </>
 
   );
