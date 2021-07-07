@@ -98,8 +98,8 @@ function Facebookpage(props) {
         const access_token = data.access_token;
         // setAccessToken(data.access_token);
         // console.log(accessTokenClient);
-        setAccessToken(access_token);
-        console.log(accessTokenClient);
+        // setAccessToken(access_token);
+        // console.log(accessTokenClient);
   
         // return;
   
