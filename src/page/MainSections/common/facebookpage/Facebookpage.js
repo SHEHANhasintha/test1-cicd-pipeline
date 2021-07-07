@@ -25,7 +25,7 @@ function Facebookpage(props) {
     return(new Promise((resolve,reject) => {
 
         // Default options are marked with *
-        const response = fetch(url, {
+        fetch(url, {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -41,8 +41,8 @@ function Facebookpage(props) {
           .then(result => {resolve(result)});
         // let res =  response.text();
         
-        console.log(response);
-        return response; // parses JSON response into native JavaScript objects
+        // console.log(response);
+        // return response; // parses JSON response into native JavaScript objects
 
       })
     );
