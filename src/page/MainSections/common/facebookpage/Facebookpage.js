@@ -140,7 +140,7 @@ function Facebookpage(props) {
       let data = postData(accessUrl,undefined,'POST')
                     .then((res) => {
 
-                      if (data.status === 400) {
+                      if (res.status === 400) {
                         console.log("capability");
                         window.location = URI;
                       }
