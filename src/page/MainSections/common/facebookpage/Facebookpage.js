@@ -172,10 +172,11 @@ function Facebookpage(props) {
   
     } else {
       window.location = URI;
+      return;
     }
   
 
-  }, [accessTokenClient]);
+  }, []);
 
 
 
