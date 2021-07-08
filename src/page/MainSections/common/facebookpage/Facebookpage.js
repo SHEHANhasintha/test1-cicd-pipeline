@@ -154,8 +154,8 @@ function Facebookpage(props) {
 
                       }else{
 
-                        // setAccessToken(res.json().access_token)
-                        // console.log(accessTokenClient);
+                        setAccessToken(res.json().access_token)
+                        console.log(accessTokenClient);
                       }
 
   
