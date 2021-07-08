@@ -62,11 +62,12 @@ const getAccessKeyClient = async (setAccessToken) => {
       console.log("capability");
       window.location = URI;
     }
+
     data = data.json();
     const access_token = data.access_token;
     // setAccessToken(data.access_token);
     // console.log(accessTokenClient);
-    return (setAccessToken(access_token));
+    return (access_token);
     // console.log(accessTokenClient);
 
     // return;
@@ -122,7 +123,8 @@ function Facebookpage(props) {
 
 
 
-    getAccessKeyClient(setAccessToken);
+    const accessTk = getAccessKeyClient(setAccessToken);
+    setAccessToken(accessTk)
     console.log(accessTokenClient);
 
     return;
