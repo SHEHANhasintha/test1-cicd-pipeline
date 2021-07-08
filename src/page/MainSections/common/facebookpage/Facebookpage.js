@@ -128,9 +128,7 @@ function Facebookpage(props) {
     
     console.log("sss")
   
-    if (accessTokenClient){
-      return;
-    }
+
 
     const queryString = window.location.search;
     console.log(queryString);
@@ -162,7 +160,7 @@ function Facebookpage(props) {
 
                         setAccessToken(res.json().access_token)
                         console.log(accessTokenClient);
-                        return 
+                        return;
                       }
 
   
@@ -180,7 +178,7 @@ function Facebookpage(props) {
     }
   
 
-  }, [accessTokenClient]);
+  }, []);
 
 
 
