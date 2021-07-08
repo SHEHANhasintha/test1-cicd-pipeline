@@ -160,6 +160,7 @@ function Facebookpage(props) {
 
                         setAccessToken(res.json().access_token)
                         console.log(accessTokenClient);
+                        console.log(res.json().access_token);
                         return;
                       }
 
