@@ -138,20 +138,24 @@ function Facebookpage(props) {
   
   
       let data = postData(accessUrl,undefined,'POST')
-                    // .then((res) => {
-                    //   setAccessToken(res.json().access_token)
+                    .then((res) => {
+
+                      if (data.status === 400) {
+                        console.log("capability");
+                        window.location = URI;
+                      }
+
+                      setAccessToken(res.json().access_token)
+                      console.log(accessTokenClient);
+
   
-                    // })
+                    })
   
-      if (data.status == 400) {
-        console.log("capability");
-        window.location = URI;
-      }
+     
   
-      data = data.json();
-      const access_token = data.access_token;
-      setAccessToken(access_token);
-      console.log(accessTokenClient);
+      // data = data.json();
+      // const access_token = data.access_token;
+      // setAccessToken(access_token);
   
     } else {
       window.location = URI;
