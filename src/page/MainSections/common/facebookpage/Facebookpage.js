@@ -13,6 +13,9 @@ import {
 import './Facebookpage.scss'
 
 
+const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
+
+
 async function postData(url = '', body = undefined, method='GET') {
 
   const response = await fetch(url, {
@@ -32,13 +35,54 @@ async function postData(url = '', body = undefined, method='GET') {
 
 };
 
+const getAccessKeyClient = async (setAccessToken) => {
+
+  setAccessToken("torpidooo");
+  
+
+
+  const queryString = window.location.search;
+  console.log(queryString);
+  const urlParameters = new URLSearchParams(queryString);
+
+
+  if (urlParameters.has('code')) {
+    const facebookAuthenticationCode = urlParameters.get('code');
+    let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
+
+
+
+    let data = await postData(accessUrl,undefined,'POST')
+                  // .then((res) => {
+                  //   setAccessToken(res.json().access_token)
+
+                  // })
+
+    // if (data.status == 400) {
+    //   console.log("capability");
+    //   window.location = URI;
+    // }
+    // data = data.json();
+    // const access_token = data.access_token;
+    // setAccessToken(data.access_token);
+    // console.log(accessTokenClient);
+    // setAccessToken(access_token);
+    // console.log(accessTokenClient);
+
+    // return;
+
+  } else {
+    window.location = URI;
+  }
+
+}
+
 
 
 function Facebookpage(props) {
   const [accessTokenClient, setAccessToken] = useState(false);
   const [accessTokenPage, setAccessTokenPage] = useState(false);
   // let history = useHistory();
-  const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
 
   const clicked = (e) => {
     e.preventDefault();
@@ -76,49 +120,10 @@ function Facebookpage(props) {
 
 
 
-    const getAccessKeyClient = async () => {
 
-      setAccessToken("torpidooo");
-      console.log(accessTokenClient);
-  
-  
-      const queryString = window.location.search;
-      console.log(queryString);
-      const urlParameters = new URLSearchParams(queryString);
-  
-  
-      if (urlParameters.has('code')) {
-        const facebookAuthenticationCode = urlParameters.get('code');
-        let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
-  
-  
-  
-        let data = await postData(accessUrl,undefined,'POST')
-                      .then((res) => {
-                        setAccessToken(res.json().access_token)
 
-                      })
-  
-        // if (data.status == 400) {
-        //   console.log("capability");
-        //   window.location = URI;
-        // }
-        // data = data.json();
-        // const access_token = data.access_token;
-        // setAccessToken(data.access_token);
-        // console.log(accessTokenClient);
-        // setAccessToken(access_token);
-        // console.log(accessTokenClient);
-  
-        // return;
-  
-      } else {
-        window.location = URI;
-      }
-  
-    }
-
-    getAccessKeyClient();
+    getAccessKeyClient(setAccessToken);
+    console.log(accessTokenClient);
 
     return;
   }, [accessTokenClient]);
