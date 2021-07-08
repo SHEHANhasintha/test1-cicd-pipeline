@@ -139,14 +139,14 @@ function Facebookpage(props) {
   
       let data = postData(accessUrl,undefined,'POST')
                     .then((res) => {
-
+                      console.log(res.json())
                       if (res.status === 400) {
                         console.log("capability");
-                        window.location = URI;
+                        // window.location = URI;
                       }else{
 
-                        setAccessToken(res.json().access_token)
-                        console.log(accessTokenClient);
+                        // setAccessToken(res.json().access_token)
+                        // console.log(accessTokenClient);
                       }
 
   
