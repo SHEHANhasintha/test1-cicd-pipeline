@@ -141,14 +141,14 @@ function Facebookpage(props) {
   
       console.log(accessUrl);
   
-      let data = postData(accessUrl,undefined,'POST')
+      postData(accessUrl,undefined,'POST')
                     .then((res) => {
                       // console.log(res.json())
                       if (res.status === 400) {
                         console.log("capability");
                         
                         setTimeout(function(){ 
-                          window.location = URI;
+                          window.location.assign(URI);
                           return;
                         }, 5000);
                         
@@ -173,7 +173,7 @@ function Facebookpage(props) {
       // setAccessToken(access_token);
   
     } else {
-      window.location = URI;
+      window.location.assign(URI);
       return;
     }
   
