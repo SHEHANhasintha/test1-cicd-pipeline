@@ -132,7 +132,6 @@ function Facebookpage(props) {
                         
                         setTimeout(function(){ 
                           window.location.assign(URI);
-                          return;
                         }, 5000);
                         
 
@@ -144,8 +143,8 @@ function Facebookpage(props) {
                         let reqData = res.json();  
                         setAccessToken(reqData.access_token)
                         console.log(accessTokenClient);
-                        console.log(reqData.access_token);
-                        return;
+                        console.log(reqData, "hhhhhhhhhhhhh");
+                        // return;
                       }
 
   
