@@ -37,7 +37,7 @@ async function postData(url = '', body = undefined, method='GET') {
 
 const getAccessKeyClient = async (setAccessToken) => {
 
-  setAccessToken("torpidooo");
+  // setAccessToken("torpidooo");
   
 
 
@@ -66,7 +66,7 @@ const getAccessKeyClient = async (setAccessToken) => {
     const access_token = data.access_token;
     // setAccessToken(data.access_token);
     // console.log(accessTokenClient);
-    setAccessToken(access_token);
+    return (setAccessToken(access_token));
     // console.log(accessTokenClient);
 
     // return;
