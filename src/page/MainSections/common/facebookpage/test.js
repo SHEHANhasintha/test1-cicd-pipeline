@@ -29,7 +29,7 @@ const postData = async (accessUrl) => {
 
 
 
-    return getData;
+    return getData.access_token;
         // console.log(getData);
         // console.log(getData.status)
 

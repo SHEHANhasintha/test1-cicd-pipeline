@@ -126,10 +126,11 @@ function Facebookpage(props) {
 
 ///
       const returnedData = postData(accessUrl);
+
       console.log(returnedData,"bbbbbbbbbbbb")
 
-        // setAccessToken(reqData.access_token)
-        //     console.log(accessTokenClient);
+        setAccessToken(returnedData)
+            console.log(accessTokenClient);
 
 
       // data = data.json();
