@@ -4,23 +4,49 @@
 
 
 
-const postData = async (url = '', body = undefined, method='GET') => {
+const reqData = async (url = '', body = undefined, method = 'GET') => {
     console.log("calling")
     const response = await fetch(url, {
-      method, // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        // 'Content-Type': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: 'follow', // manual, *follow, error
-      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body
+        method, // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            // 'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body
     })
-    return response;
-  
-  };
+    return response.json();
 
-  export { postData };
+};
+
+
+const postData = async (accessUrl) => {
+    const getData = await reqData(accessUrl, undefined, 'POST')
+
+        console.log(getData.status);
+        // getData.then((res) => {
+        //     // console.log(res.json())
+        //     if (res.status === 400) {
+        //         console.log("capability");
+
+        //         setTimeout(function () {
+        //             window.location.assign(URI);
+        //         }, 5000);
+
+        //     } else {
+
+        //         let reqData = res.json();
+        //         console.log(reqData, "hhhhhhhhhhhhh");
+        //         return reqData;
+        //     }
+
+
+        // })
+
+}
+
+export { reqData, postData };
