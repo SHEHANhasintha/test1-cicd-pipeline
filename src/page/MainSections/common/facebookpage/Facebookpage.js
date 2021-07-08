@@ -13,7 +13,6 @@ import {
 import './Facebookpage.scss'
 
 
-const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
 
 
 async function postData(url = '', body = undefined, method='GET') {
@@ -43,6 +42,9 @@ function Facebookpage(props) {
   const [accessTokenClient, setAccessToken] = useState(false);
   const [accessTokenPage, setAccessTokenPage] = useState(false);
   // let history = useHistory();
+
+  const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
+
 
   const clicked = (e) => {
     e.preventDefault();
@@ -132,17 +134,17 @@ function Facebookpage(props) {
   
   
     if (urlParameters.has('code')) {
-      const facebookAuthenticationCode = urlParameters.get('code');
+      let facebookAuthenticationCode = urlParameters.get('code');
       let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
   
-  
+      console.log(accessUrl);
   
       let data = postData(accessUrl,undefined,'POST')
                     .then((res) => {
                       console.log(res.json())
                       if (res.status === 400) {
                         console.log("capability");
-                        // window.location = URI;
+                        window.location = URI;
                       }else{
 
                         // setAccessToken(res.json().access_token)
