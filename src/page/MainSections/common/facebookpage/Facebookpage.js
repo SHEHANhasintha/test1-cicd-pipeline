@@ -17,7 +17,7 @@ const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=2323317213898
 
 
 async function postData(url = '', body = undefined, method='GET') {
-
+  console.log("calling")
   const response = await fetch(url, {
     method, // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
@@ -142,11 +142,12 @@ function Facebookpage(props) {
 
                       if (res.status === 400) {
                         console.log("capability");
-                        // window.location = URI;
-                      }
+                        window.location = URI;
+                      }else{
 
-                      setAccessToken(res.json().access_token)
-                      console.log(accessTokenClient);
+                        setAccessToken(res.json().access_token)
+                        console.log(accessTokenClient);
+                      }
 
   
                     })
