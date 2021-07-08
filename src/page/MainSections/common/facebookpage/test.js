@@ -27,7 +27,7 @@ const reqData = async (url = '', body = undefined, method = 'GET') => {
 const postData = async (accessUrl) => {
     const getData = await reqData(accessUrl, undefined, 'POST')
 
-        console.log(getData.status);
+        // console.log(getData.status);
         // getData.then((res) => {
         //     // console.log(res.json())
         //     if (res.status === 400) {
