@@ -144,7 +144,14 @@ function Facebookpage(props) {
                       console.log(res.json())
                       if (res.status === 400) {
                         console.log("capability");
-                        window.location = URI;
+                        
+                        setTimeout(function(){ 
+                          window.location = URI;
+                        }, 5000);
+
+                        
+
+
                       }else{
 
                         // setAccessToken(res.json().access_token)
