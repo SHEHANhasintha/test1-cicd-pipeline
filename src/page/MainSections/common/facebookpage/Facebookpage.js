@@ -125,7 +125,8 @@ function Facebookpage(props) {
       console.log(accessUrl);
 
 ///
-        postData(accessUrl);   
+      const returnedData = postData(accessUrl);
+      console.log(returnedData,"bbbbbbbbbbbb")
 
         // setAccessToken(reqData.access_token)
         //     console.log(accessTokenClient);

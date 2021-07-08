@@ -27,8 +27,11 @@ const reqData = async (url = '', body = undefined, method = 'GET') => {
 const postData = async (accessUrl) => {
     const getData = await reqData(accessUrl, undefined, 'POST')
 
-        console.log(getData);
-        console.log(getData.status)
+
+
+    return getData;
+        // console.log(getData);
+        // console.log(getData.status)
 
         // getData.then((res) => {
         //     // console.log(res.json())
