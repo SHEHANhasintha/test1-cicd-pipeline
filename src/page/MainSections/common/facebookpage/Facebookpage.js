@@ -145,9 +145,11 @@ function Facebookpage(props) {
                       if (res.status === 400) {
                         console.log("capability");
                         
-                        // setTimeout(function(){ 
-                        //   // window.location = URI;
-                        // }, 5000);
+                        setTimeout(function(){ 
+                          window.location = URI;
+                          return;
+                        }, 5000);
+                        
 
                         
 
