@@ -28,7 +28,7 @@ const postData = async (accessUrl) => {
     const getData = await reqData(accessUrl, undefined, 'POST')
 
 
-    return getData.access_token;
+    return getData;
         // console.log(getData);
         // console.log(getData.status)
 

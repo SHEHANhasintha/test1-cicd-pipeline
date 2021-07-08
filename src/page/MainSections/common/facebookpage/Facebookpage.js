@@ -126,16 +126,15 @@ function Facebookpage(props) {
 
 ///
       const returnedData = postData(accessUrl)
-      setAccessToken(returnedData);
-      console.log(returnedData,"bbbbbbbbbbbb")
-      console.log(accessTokenClient);
-      
-      // then(data => {
-      //     console.log(data,"bbbbbbbbbbbb")
-      //     setAccessToken(data)
-      //     console.log(accessTokenClient);
+        .then(data => {
+          if (data.hasOwnProperty('code')){
+            console.log(data,"errrrr")
+          }
+          console.log(data,"bbbbbbbbbbbb")
+          setAccessToken(data)
+          console.log(accessTokenClient);
           
-      //   })
+        })
 
       
 
