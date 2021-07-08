@@ -58,15 +58,15 @@ const getAccessKeyClient = async (setAccessToken) => {
 
                   // })
 
-    // if (data.status == 400) {
-    //   console.log("capability");
-    //   window.location = URI;
-    // }
-    // data = data.json();
-    // const access_token = data.access_token;
+    if (data.status == 400) {
+      console.log("capability");
+      window.location = URI;
+    }
+    data = data.json();
+    const access_token = data.access_token;
     // setAccessToken(data.access_token);
     // console.log(accessTokenClient);
-    // setAccessToken(access_token);
+    setAccessToken(access_token);
     // console.log(accessTokenClient);
 
     // return;
