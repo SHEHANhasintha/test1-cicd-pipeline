@@ -125,13 +125,17 @@ function Facebookpage(props) {
       console.log(accessUrl);
 
 ///
-      postData(accessUrl)
-        .then(data => {
-          console.log(data,"bbbbbbbbbbbb")
-          setAccessToken(data)
-          console.log(accessTokenClient);
+      const returnedData = postData(accessUrl)
+      setAccessToken(returnedData);
+      console.log(returnedData,"bbbbbbbbbbbb")
+      console.log(accessTokenClient);
+      
+      // then(data => {
+      //     console.log(data,"bbbbbbbbbbbb")
+      //     setAccessToken(data)
+      //     console.log(accessTokenClient);
           
-        })
+      //   })
 
       
 
@@ -148,7 +152,7 @@ function Facebookpage(props) {
     }
 
 
-  }, [accessTokenClient]);
+  }, []);
 
 
 
