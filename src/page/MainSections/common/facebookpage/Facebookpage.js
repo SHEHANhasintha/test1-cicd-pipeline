@@ -128,6 +128,10 @@ function Facebookpage(props) {
     
     console.log("sss")
   
+    if (accessTokenClient){
+      return;
+    }
+
     const queryString = window.location.search;
     console.log(queryString);
     const urlParameters = new URLSearchParams(queryString);
@@ -176,7 +180,7 @@ function Facebookpage(props) {
     }
   
 
-  }, []);
+  }, [accessTokenClient]);
 
 
 
