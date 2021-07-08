@@ -128,7 +128,7 @@ function Facebookpage(props) {
       postData(accessUrl)
         .then(data => {
           console.log(data,"bbbbbbbbbbbb")
-          setAccessToken(data)
+          setAccessToken('ggggggggggggggggggggggggggggggggggggggggg')
           console.log(accessTokenClient);
 
         })
