@@ -148,7 +148,7 @@ function Facebookpage(props) {
     }
 
 
-  }, []);
+  }, [accessTokenClient]);
 
 
 
