@@ -141,12 +141,12 @@ function Facebookpage(props) {
   
       let data = postData(accessUrl,undefined,'POST')
                     .then((res) => {
-                      console.log(res.json())
+                      // console.log(res.json())
                       if (res.status === 400) {
                         console.log("capability");
                         
                         setTimeout(function(){ 
-                          window.location = URI;
+                          // window.location = URI;
                         }, 5000);
 
                         
