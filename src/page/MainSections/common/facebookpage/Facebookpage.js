@@ -115,20 +115,7 @@ function Facebookpage(props) {
 
   // }
 
-  useEffect(getAccessKeyClient(),function () {
-
-
-
-
-
-
-
-    // const accessTk = getAccessKeyClient(setAccessToken);
-    // setAccessToken(accessTk)
-    console.log(accessTokenClient);
-
-    return;
-  }, [accessTokenClient]);
+  useEffect(getAccessKeyClient(), [accessTokenClient]);
 
   return (
     <>
