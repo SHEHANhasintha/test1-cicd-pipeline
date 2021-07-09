@@ -22,7 +22,7 @@ const Likes = (props) => {
   
   }
 
-  getPageToken(props.accessToken);
+  // getPageToken(props.accessToken);
 
   return (
     <div className="Likes">
