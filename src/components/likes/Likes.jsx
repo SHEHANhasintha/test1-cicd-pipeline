@@ -5,28 +5,33 @@ import { getData } from "../../helpers/helper";
 
 
 const Likes = (props) => {
-  const [message, setMessage] = useState(false);
+  const [message,setMessage] = useState(false);
+
+  const extractData = async () => {
 
 
-
-
-  useEffect(() => {
-    console.log("caveeeeee", props.accessToken)
+    console.log("caveeeeee",props.accessToken)
     const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709_1406401799468723?access_token=${props.accessToken}`
-    let data = getData(accessUrl)
+    let data = await getData(accessUrl)
     // console.log(data.json().message);
     // data = data;
 
     // console.log(data.message);
     // return <p>{data.message}</p>;
     setMessage(data.message);
-  }, [message, props.accessToken])
+    return <p>{message}</p>
+  }
+
+
+  useEffect(() => {
+
+  }, [props.accessToken,message])
 
 
   return (
     <div className="Likes">
       {
-        props.message ? <p>{message}</p> : "loading..."
+        props.accessToken ? extractData() : "loading..."
       }
 
     </div>
