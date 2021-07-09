@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./Likes.scss";
 import { getData } from "../../helpers/helper";
 
-const extractDiscription = async (props,setMessage) => {
+const extractDiscription = async (props, setMessage) => {
 
-  if (!props.accessToken){
+  if (!props.accessToken) {
     return
   }
-  console.log("caveeeeee",props.accessToken)
+  console.log("caveeeeee", props.accessToken)
   const accessUrl = `https://graph.facebook.com/v11.0/${props.value}?access_token=${props.accessToken}`
   let data = await getData(accessUrl)
 
@@ -15,46 +15,43 @@ const extractDiscription = async (props,setMessage) => {
   setMessage(data.message);
 }
 
-const extractLikesAndImages = async(props,setLikes,setImage) => {
-  if (!props.accessToken){
+const extractLikesAndImages = async (props, setLikes, setImage) => {
+  if (!props.accessToken) {
     return
   }
-  console.log("braeeeeee",props.accessToken)
+  console.log("braeeeeee", props.accessToken)
   const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709/feed?access_token=${props.accessToken}&fields=child_attachments%2Cattachments%2Clikes.summary(true)`;
   let data = await getData(accessUrl)
 
 
   console.log(data)
 
-  data = await data.forEach(element => {
-    console.log(element)
-    if (element.id.trim() === props.value.trim()){
-      return element;
-    }
-  });
-
+  data = await data.data.filter(element => element.id.trim() === props.value.trim());
+  setLikes(data.likes.summary.total_count);
   console.log(data);
-  
+
 }
 
 const Likes = (props) => {
-  const [message,setMessage] = useState(false);
-  const [Likes,setLikes] = useState(false);
-  const [image,setImage] = useState(false);
+  const [message, setMessage] = useState(false);
+  const [likes, setLikes] = useState(false);
+  const [image, setImage] = useState(false);
 
 
   useEffect(() => {
-    extractDiscription(props,setMessage);
-    extractLikesAndImages(props,setLikes,setImage);
-  }, [props.accessToken,props.value])
+    extractDiscription(props, setMessage);
+    extractLikesAndImages(props, setLikes, setImage);
+  }, [props.accessToken, props.value])
 
 
   return (
     <div className="Likes">
       {
-        message ? <p>{message}</p> : "loading..."
+        message ? <p>Discription: {message}</p> : "loading..."
       }
-
+      {
+        likes ? <p>Amount Of Likes: {likes}</p> : "loading..."
+      }
     </div>
   );
 };
