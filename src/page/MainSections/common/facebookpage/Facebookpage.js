@@ -55,6 +55,7 @@ function Facebookpage(props) {
   }
 
   useEffect(() => {
+    console.log(1);
     const queryString = window.location.search;
     console.log(queryString);
     const urlParameters = new URLSearchParams(queryString);
@@ -88,11 +89,13 @@ function Facebookpage(props) {
   });
 
   useEffect(() => {
-    let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
+    console.log(2);
+    if (!accessTokenClient){
+      let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
+      let data = getData(accessUrl)
+    }
 
-    let data = getData(accessUrl)
-
-  },[accessTokenClient])
+  })
 
   return (
     <>
