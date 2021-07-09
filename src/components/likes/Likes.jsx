@@ -9,7 +9,10 @@ const Likes = (props) => {
   const extractData = async () => {
     const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709_1406401799468723?access_token=${props.accessToken}`
     let data = await getData(accessUrl)
-    return <p>{data.json().message}</p>;
+    // console.log(data.json().message);
+    data = data.json();
+    console.log(data);
+    return <p>{data.message}</p>;
   }
 
 
