@@ -102,11 +102,6 @@ function Facebookpage(props) {
     setAddinElements(newEle);
   }
 
-
-  useEffect(() => {
-
-  },[addinElements])
-
   const handleChange = (e) => {
     setAddinInfo(e.target.value.trim());
 
