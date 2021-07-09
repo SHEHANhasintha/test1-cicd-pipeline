@@ -57,7 +57,7 @@ const Likes = (props) => {
         likes ? <p>Amount Of Likes: {likes}</p> : "loading..."
       }
       {
-        image ? <img src={image} alt='image1'/> : 'loading...'
+        image ? <img src={image} alt='image1'></img> : 'loading...'
       }
     </div>
   );
