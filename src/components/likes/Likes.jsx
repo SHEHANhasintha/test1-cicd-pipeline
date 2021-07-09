@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import "./Likes.scss";
+import { getData } from "../../helpers/helper";
 
 const Likes = (props) => {
 

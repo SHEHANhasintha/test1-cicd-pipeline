@@ -12,7 +12,7 @@ import {
 
 
 import './Facebookpage.scss'
-import { postData, getData } from './helper';
+import { postData, getData } from '../../../../helpers/helper';
 
 import { Likes } from '../../../../components'
 
