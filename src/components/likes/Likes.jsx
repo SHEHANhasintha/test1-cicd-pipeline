@@ -31,6 +31,7 @@ const extractLikesAndImages = async (props, setLikes, setImage) => {
   releventElement = releventElement[0];
   setLikes(releventElement.likes.summary.total_count);
   const image = releventElement.attachments.data[0].media.image;
+  setImage(image.src);
   console.log(image)
 
 
