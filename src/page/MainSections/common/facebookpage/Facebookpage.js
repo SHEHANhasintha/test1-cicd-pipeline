@@ -96,8 +96,9 @@ function Facebookpage(props) {
 
   const submit = (e) => {
     e.preventDefault();
+    // '1314251948683709_1406401799468723'
     let newEle = addinElements.concat(
-      <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} value={'1314251948683709_1406401799468723'} />
+      <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} value={addinInfo} />
     );
     setAddinElements(newEle);
   }
