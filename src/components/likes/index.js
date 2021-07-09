@@ -1,2 +1,2 @@
-import Button1 from "./Button1.jsx";
-export default Button1;
+import Likes from "./Likes.jsx";
+export default Likes;

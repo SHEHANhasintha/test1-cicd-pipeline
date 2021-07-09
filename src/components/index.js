@@ -1,5 +1,5 @@
-import Button1 from "./Button1";
+import Likes from "./likes";
 
 export { 
-    Button1
+    Likes
 };

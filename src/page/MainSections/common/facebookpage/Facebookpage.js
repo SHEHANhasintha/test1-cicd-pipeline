@@ -14,7 +14,7 @@ import {
 import './Facebookpage.scss'
 import { postData, getData } from './helper';
 
-
+import { Likes } from '../../../../components'
 
 
 
@@ -110,6 +110,7 @@ function Facebookpage(props) {
         }
       } */}
       <p>{accessTokenClient}</p>
+      <Likes accessToken={accessTokenClient} />
 
 
     </>
