@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import "./Likes.scss";
 import { getData } from "../../helpers/helper";
 
@@ -9,15 +9,13 @@ const getPageToken = (accessToken) => {
     let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessToken}`
     let data = getData(accessUrl)
     console.log(data)
+    return data;
   }
 
 }
 
 const Likes = (props) => {
-
-  useEffect(() => {
-
-  }, [])
+  let [pageToken,setPageToken] = useState(false);
 
   getPageToken(props.accessToken);
 
@@ -26,6 +24,10 @@ const Likes = (props) => {
       {
         () => {
           getPageToken(props.accessToken)
+            .then((data) => {
+              setPageToken(data.access_token)
+              return;
+            })
         }
       }
     </div>
