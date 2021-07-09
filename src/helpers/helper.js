@@ -24,6 +24,7 @@ const postData = async (accessUrl) => {
 
 const getData = async (accessUrl) => {
     const resData = await reqData(accessUrl, undefined, 'GET')
+    console.log("rrrrrrrrrrrrrrrr")
     return resData;
 }
 
