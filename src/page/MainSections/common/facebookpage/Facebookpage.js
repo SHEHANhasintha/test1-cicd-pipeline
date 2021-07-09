@@ -12,7 +12,7 @@ import {
 
 
 import './Facebookpage.scss'
-import { postData,getData } from './helper';
+import { postData, getData } from './helper';
 
 
 
@@ -78,7 +78,7 @@ function Facebookpage(props) {
         })
         .then(() => {
           console.log(2)
-          if (accessTokenClient){
+          if (accessTokenClient) {
             let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
             let data = getData(accessUrl)
             console.log(data)
@@ -95,7 +95,7 @@ function Facebookpage(props) {
     }
 
 
-  });
+  },[]);
 
   return (
     <>
