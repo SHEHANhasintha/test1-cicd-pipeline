@@ -13,7 +13,7 @@ const Likes = (props) => {
     // console.log(data.json().message);
     // data = data;
     const ret = data.message;
-    console.log(data.message);
+    // console.log(data.message);
     // return <p>{data.message}</p>;
   }
 
