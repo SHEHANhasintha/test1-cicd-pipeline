@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Likes.scss";
-import { getData } from "../../helpers/helper";
+import { getData,getDatatemp } from "../../helpers/helper";
 
 
 
@@ -12,7 +12,10 @@ const Likes = (props) => {
 
     console.log("caveeeeee",props.accessToken)
     const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709_1406401799468723?access_token=${props.accessToken}`
-    let data = await getData(accessUrl)
+    let data = await getDatatemp(accessUrl)
+
+
+
     // console.log(data.json().message);
     // data = data;
 
