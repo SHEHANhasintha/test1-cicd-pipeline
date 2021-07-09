@@ -134,7 +134,7 @@ function Facebookpage(props) {
       <form onSubmit={submit}>
         <label for="post">post id:</label><br />
         <input type="text" id="postId" name="post" onChange={e => handleChange(e)} value="1314251948683709_1406401799468723" /><br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onSubmit={e => submit(e)}/>
       </form>
 
     </>
