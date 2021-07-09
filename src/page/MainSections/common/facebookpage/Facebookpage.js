@@ -137,6 +137,9 @@ function Facebookpage(props) {
           console.log(accessTokenClient);
           
         })
+        .catch(err => {
+          throw err;
+        })
 
       
 
