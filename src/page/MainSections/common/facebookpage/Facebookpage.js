@@ -30,7 +30,8 @@ function Facebookpage(props) {
 
 
   const clicked = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("fdfdfdfd");
   }
 
   const getAccessKeyPage = async () => {
@@ -88,7 +89,7 @@ function Facebookpage(props) {
 
   }, []);
 
-
+  // clicked();
 
   return (
     <>
