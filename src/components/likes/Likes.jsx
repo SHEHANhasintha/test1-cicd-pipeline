@@ -23,7 +23,13 @@ const extractLikesAndImages = async(props,setLikes,setImage) => {
   const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709/feed?access_token=${props.accessToken}&fields=child_attachments%2Cattachments%2Clikes.summary(true)`;
   let data = await getData(accessUrl);
 
-  data = data.filter((peace) => peace.id.trim() === props.value.trim());
+
+
+  data = data.array.forEach(element => {
+    if (element.id.trim() === props.value.trim()){
+      return element;
+    }
+  });
 
   console.log(data);
   
