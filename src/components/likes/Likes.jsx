@@ -25,7 +25,7 @@ const extractLikesAndImages = async(props,setLikes,setImage) => {
 
 
 
-  data = data.forEach(element => {
+  data = await data.forEach(element => {
     console.log(element)
     if (element.id.trim() === props.value.trim()){
       return element;
