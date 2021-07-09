@@ -30,7 +30,7 @@ const Likes = (props) => {
   return (
     <div className="Likes">
 
-      <p>pageToken: {pageToken}</p>;
+      <p>pageToken: {pageToken}</p>
     </div>
   );
 };

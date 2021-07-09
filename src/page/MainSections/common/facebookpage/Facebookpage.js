@@ -74,8 +74,17 @@ function Facebookpage(props) {
           }
           console.log(data, "success")
           setAccessToken(data.access_token)
-          console.log(accessTokenClient)
+          // console.log(accessTokenClient)
+          return data.access_token;
 
+        })
+        .then((accessToken) => {
+          let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessToken}`
+          getData(accessUrl)
+            .then((data) => {
+              console.log(data);
+              setAccessTokenPage(data.access_token)
+            })
         })
         .catch(err => {
           throw err;
@@ -99,7 +108,8 @@ function Facebookpage(props) {
         }
       } */}
       <p>page token client: {accessTokenClient}</p>
-      <Likes accessToken={accessTokenClient} />
+      <p>page Token: {accessTokenPage}</p>
+      {/* <Likes accessToken={accessTokenClient} /> */}
 
 
     </>
