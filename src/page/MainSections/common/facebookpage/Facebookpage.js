@@ -12,7 +12,7 @@ import {
 
 
 import './Facebookpage.scss'
-import { postData,getData } from './test';
+import { postData,getData } from './helper';
 
 
 
@@ -76,6 +76,15 @@ function Facebookpage(props) {
           console.log(accessTokenClient)
 
         })
+        .then(() => {
+          console.log(2)
+          if (accessTokenClient){
+            let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
+            let data = getData(accessUrl)
+            console.log(data)
+          }
+
+        })
         .catch(err => {
           throw err;
         })
@@ -87,15 +96,6 @@ function Facebookpage(props) {
 
 
   });
-
-  useEffect(() => {
-    console.log(2);
-    if (accessTokenClient){
-      let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
-      let data = getData(accessUrl)
-    }
-
-  })
 
   return (
     <>
