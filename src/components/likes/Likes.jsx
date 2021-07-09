@@ -14,7 +14,7 @@ const Likes = (props) => {
 
 
   useEffect(() => {
-    test();
+    // extractData();
   }, [props.accessToken])
 
 
