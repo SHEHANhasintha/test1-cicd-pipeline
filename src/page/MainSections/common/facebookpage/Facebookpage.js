@@ -97,6 +97,7 @@ function Facebookpage(props) {
   const submit = (e) => {
     e.preventDefault();
     // '1314251948683709_1406401799468723'
+    // 1314251948683709_1393873904054846
     let newEle = addinElements.concat(
       <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} value={addinInfo} />
     );
@@ -129,7 +130,7 @@ function Facebookpage(props) {
 
       <form onSubmit={submit}>
         <label for="post">post id:</label><br />
-        <input type="text" id="postId" name="post" onChange={e => handleChange(e)} value="1314251948683709_1406401799468723" /><br />
+        <input type="text" id="postId" name="post" onChange={e => handleChange(e)}  /><br />
         <input type="submit" value="Submit" onSubmit={e => submit(e)}/>
       </form>
 
