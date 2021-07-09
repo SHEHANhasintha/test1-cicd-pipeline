@@ -21,9 +21,10 @@ const extractLikesAndImages = async(props,setLikes,setImage) => {
   }
   console.log("braeeeeee",props.accessToken)
   const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709/feed?access_token=${props.accessToken}&fields=child_attachments%2Cattachments%2Clikes.summary(true)`;
-  let data = await getData(accessUrl);
+  let data = await getData(accessUrl)
 
 
+  console.log(data)
 
   data = await data.forEach(element => {
     console.log(element)
