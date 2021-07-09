@@ -12,8 +12,9 @@ const Likes = (props) => {
     let data = await getData(accessUrl)
     // console.log(data.json().message);
     // data = data;
-    console.log(data);
-    return <p>{data.message}</p>;
+    const ret = data.message;
+    console.log(data.message);
+    // return <p>{data.message}</p>;
   }
 
 
