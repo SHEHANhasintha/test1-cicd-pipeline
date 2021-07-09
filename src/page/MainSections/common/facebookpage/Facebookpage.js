@@ -55,48 +55,48 @@ function Facebookpage(props) {
 
   }
 
-  // useEffect(() => {
-  //   console.log(1);
-  //   const queryString = window.location.search;
-  //   console.log(queryString);
-  //   const urlParameters = new URLSearchParams(queryString);
+  useEffect(() => {
+    console.log(1);
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParameters = new URLSearchParams(queryString);
 
-  //   if (urlParameters.has('code')) {
-  //     let facebookAuthenticationCode = urlParameters.get('code');
-  //     let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
+    if (urlParameters.has('code')) {
+      let facebookAuthenticationCode = urlParameters.get('code');
+      let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`;
 
-  //     postData(accessUrl)
-  //       .then(data => {
-  //         if (data.hasOwnProperty('error')) {
-  //           console.log(data, "error")
-  //           window.location.assign(URI);
-  //           return;
-  //         }
-  //         console.log(data, "success")
-  //         setAccessToken(data.access_token)
-  //         // console.log(accessTokenClient)
-  //         return data.access_token;
+      postData(accessUrl)
+        .then(data => {
+          if (data.hasOwnProperty('error')) {
+            console.log(data, "error")
+            window.location.assign(URI);
+            return;
+          }
+          console.log(data, "success")
+          setAccessToken(data.access_token)
+          // console.log(accessTokenClient)
+          return data.access_token;
 
-  //       })
-  //       .then((accessToken) => {
-  //         let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessToken}`
-  //         getData(accessUrl)
-  //           .then((data) => {
-  //             console.log(data);
-  //             setAccessTokenPage(data.access_token)
-  //           })
-  //       })
-  //       .catch(err => {
-  //         throw err;
-  //       })
+        })
+        .then((accessToken) => {
+          let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessToken}`
+          getData(accessUrl)
+            .then((data) => {
+              console.log(data);
+              setAccessTokenPage(data.access_token)
+            })
+        })
+        .catch(err => {
+          throw err;
+        })
 
-  //   } else {
-  //     window.location.assign(URI);
-  //     return;
-  //   }
+    } else {
+      window.location.assign(URI);
+      return;
+    }
 
 
-  // }, []);
+  }, []);
 
   // clicked();
 
