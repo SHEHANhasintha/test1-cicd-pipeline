@@ -102,14 +102,16 @@ function Facebookpage(props) {
 
   return (
     <>
-      {/* {
-        () => {
-          accessTokenClient ? return() : 
-        }
-      } */}
-      <p>page token client: {accessTokenClient}</p>
-      <p>page Token: {accessTokenPage}</p>
-      {/* <Likes accessToken={accessTokenClient} /> */}
+
+      {
+        accessTokenClient ? <p>page token client: {accessTokenClient}</p> : 'loading...'
+      }
+      {
+        accessTokenPage ? <p>page token page: {accessTokenPage}</p> : 'loading...'
+      }
+      
+      <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} />
+      
 
 
     </>
