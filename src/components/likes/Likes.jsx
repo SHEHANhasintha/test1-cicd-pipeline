@@ -17,7 +17,7 @@ const Likes = (props) => {
 
     console.log(data.message);
     setMessage(data.message);
-  }, [props.accessToken])
+  }, [props.accessToken,message])
 
 
   return (
