@@ -76,10 +76,6 @@ function Facebookpage(props) {
           console.log(accessTokenClient)
 
         })
-        // .then(() => {
-
-
-        // })
         .catch(err => {
           throw err;
         })
@@ -90,17 +86,9 @@ function Facebookpage(props) {
     }
 
 
-  },[]);
+  }, []);
 
-  useEffect(() => {
-    console.log("llllllllllllllllllllllllll")
-    console.log(2, accessTokenClient)
-    if (accessTokenClient) {
-      let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessTokenClient}`
-      let data = getData(accessUrl)
-      console.log(data)
-    }
-  },[])
+
 
   return (
     <>
