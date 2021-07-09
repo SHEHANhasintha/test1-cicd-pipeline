@@ -32,6 +32,7 @@ const reqDatatemp = async (url = '', body = undefined, method = 'GET') => {
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body
     })
+    console.log(response)
     return response.json();
 
 };

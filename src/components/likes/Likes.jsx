@@ -12,7 +12,7 @@ const Likes = (props) => {
 
     console.log("caveeeeee",props.accessToken)
     const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709_1406401799468723?access_token=${props.accessToken}`
-    let data = await getDatatemp(accessUrl)
+    // let data = await getDatatemp(accessUrl)
 
 
 
