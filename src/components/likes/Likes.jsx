@@ -24,7 +24,7 @@ const Likes = (props) => {
 
   useEffect(() => {
     extractData();
-  }, [message])
+  }, [props.accessToken])
 
 
   return (
