@@ -24,15 +24,11 @@ import { Likes } from '../../../../components'
 function Facebookpage(props) {
   const [accessTokenClient, setAccessToken] = useState(false);
   const [accessTokenPage, setAccessTokenPage] = useState(false);
+  const [addinInfo, setAddinInfo] = useState('');
+  const [addinElements, setAddinElements] = useState([]);
   // let history = useHistory();
 
   const URI = "https://www.facebook.com/v11.0/dialog/oauth?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F";
-
-
-  const clicked = (e) => {
-    // e.preventDefault();
-    console.log("fdfdfdfd");
-  }
 
   const getAccessKeyPage = async () => {
 
@@ -98,7 +94,18 @@ function Facebookpage(props) {
 
   }, []);
 
-  // clicked();
+  const submit = (e) => {
+    e.preventDefault();
+    let newEle = addinElements.push(
+      <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} value={'1314251948683709_1406401799468723'} />
+      );
+    setAddinElements(newEle);
+  }
+
+  const handleChange = (e) => {
+    setAddinInfo(e.target.value.trim());
+
+  }
 
   return (
     <>
@@ -109,10 +116,20 @@ function Facebookpage(props) {
       {
         accessTokenPage ? <p>page token page: {accessTokenPage}</p> : 'loading...'
       }
-      
-      <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} value={'1314251948683709_1406401799468723'}/>
-      
-      <input type="text" id="fname" name="fname" value="1314251948683709_1406401799468723"/>
+
+      {
+        addinElements.map(e => {
+          return e;
+        })
+
+      }  
+
+
+      <form onSubmit={submit}>
+        <label for="post">post id:</label><br />
+        <input type="text" id="postId" name="post" onChange={e => handleChange(e)} value="1314251948683709_1406401799468723"/><br />
+        <input type="submit" value="Submit" />
+      </form>
 
     </>
 
