@@ -96,11 +96,16 @@ function Facebookpage(props) {
 
   const submit = (e) => {
     e.preventDefault();
-    let newEle = addinElements.push(
+    let newEle = addinElements.concat(
       <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} value={'1314251948683709_1406401799468723'} />
-      );
+    );
     setAddinElements(newEle);
   }
+
+
+  useEffect(() => {
+
+  },[addinElements])
 
   const handleChange = (e) => {
     setAddinInfo(e.target.value.trim());
@@ -119,15 +124,16 @@ function Facebookpage(props) {
 
       {
         addinElements.map(e => {
+          console.log(e)
           return e;
         })
 
-      }  
+      }
 
 
       <form onSubmit={submit}>
         <label for="post">post id:</label><br />
-        <input type="text" id="postId" name="post" onChange={e => handleChange(e)} value="1314251948683709_1406401799468723"/><br />
+        <input type="text" id="postId" name="post" onChange={e => handleChange(e)} value="1314251948683709_1406401799468723" /><br />
         <input type="submit" value="Submit" />
       </form>
 
