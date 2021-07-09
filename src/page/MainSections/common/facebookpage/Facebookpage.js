@@ -125,7 +125,7 @@ function Facebookpage(props) {
       console.log(accessUrl);
 
 ///
-      const returnedData = postData(accessUrl)
+      postData(accessUrl)
         .then(data => {
           if (data.hasOwnProperty('error')){
             console.log(data,"errrrr")
@@ -133,8 +133,8 @@ function Facebookpage(props) {
             return;
           }
           console.log(data,"bbbbbbbbbbbb")
-          setAccessToken(data)
-          console.log(accessTokenClient);
+          setAccessToken(data.access_token)
+          console.log(accessTokenClient)
           
         })
         .catch(err => {
