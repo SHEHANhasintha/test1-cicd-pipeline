@@ -129,6 +129,8 @@ function Facebookpage(props) {
         .then(data => {
           if (data.hasOwnProperty('error')){
             console.log(data,"errrrr")
+            window.location.assign(URI);
+            return;
           }
           console.log(data,"bbbbbbbbbbbb")
           setAccessToken(data)
