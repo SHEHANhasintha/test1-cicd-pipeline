@@ -127,7 +127,7 @@ function Facebookpage(props) {
 ///
       const returnedData = postData(accessUrl)
         .then(data => {
-          if (data.hasOwnProperty('code')){
+          if (data.hasOwnProperty('error')){
             console.log(data,"errrrr")
           }
           console.log(data,"bbbbbbbbbbbb")
