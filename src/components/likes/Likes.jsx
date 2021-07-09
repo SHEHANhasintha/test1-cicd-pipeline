@@ -8,7 +8,7 @@ const extractDiscription = async (props,setMessage) => {
     return
   }
   console.log("caveeeeee",props.accessToken)
-  const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709_1406401799468723?access_token=${props.accessToken}`
+  const accessUrl = `https://graph.facebook.com/v11.0/${props.value}?access_token=${props.accessToken}`
   let data = await getData(accessUrl)
 
   console.log(data);
@@ -22,6 +22,9 @@ const extractLikesAndImages = async(props,setLikes,setImage) => {
   console.log("braeeeeee",props.accessToken)
   const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709/feed?access_token=${props.accessToken}&fields=child_attachments%2Cattachments%2Clikes.summary(true)`;
   let data = await getData(accessUrl);
+
+  data = data.filter((peace) => peace.id.trim() === props.value.trim());
+
   console.log(data);
   
 }
