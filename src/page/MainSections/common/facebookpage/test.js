@@ -1,9 +1,3 @@
-// const facebookAuthenticationCode = '';
-
-// let accessUrl = `https://graph.facebook.com/v11.0/oauth/access_token?client_id=232331721389865&redirect_uri=https%3A%2F%2Fmaster.d2fkzzti19cg91.amplifyapp.com%2F&client_secret=88892166144044c04cc89cd33b0c5bd6&code=${facebookAuthenticationCode}`
-
-
-
 const reqData = async (url = '', body = undefined, method = 'GET') => {
     console.log("calling")
     const response = await fetch(url, {
@@ -23,34 +17,14 @@ const reqData = async (url = '', body = undefined, method = 'GET') => {
 
 };
 
-
 const postData = async (accessUrl) => {
-    const getData = await reqData(accessUrl, undefined, 'POST')
-
-
-    return getData;
-        // console.log(getData);
-        // console.log(getData.status)
-
-        // getData.then((res) => {
-        //     // console.log(res.json())
-        //     if (res.status === 400) {
-        //         console.log("capability");
-
-        //         setTimeout(function () {
-        //             window.location.assign(URI);
-        //         }, 5000);
-
-        //     } else {
-
-        //         let reqData = res.json();
-        //         console.log(reqData, "hhhhhhhhhhhhh");
-        //         return reqData;
-        //     }
-
-
-        // })
-
+    const resData = await reqData(accessUrl, undefined, 'POST')
+    return resData;
 }
 
-export { reqData, postData };
+const getData = async (accessUrl) => {
+    const resData = await reqData(accessUrl, undefined, 'GET')
+    return resData;
+}
+
+export { reqData, postData, getData };
