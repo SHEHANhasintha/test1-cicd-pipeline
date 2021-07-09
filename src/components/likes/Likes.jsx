@@ -12,29 +12,25 @@ const Likes = (props) => {
 
     console.log("caveeeeee",props.accessToken)
     const accessUrl = `https://graph.facebook.com/v11.0/1314251948683709_1406401799468723?access_token=${props.accessToken}`
-    // let data = await getDatatemp(accessUrl)
-
-
+    let data = await getDatatemp(accessUrl)
 
     // console.log(data.json().message);
-    // data = data;
 
-    // console.log(data.message);
-    // return <p>{data.message}</p>;
-    // setMessage(data.message);
+    console.log(data.message);
+    setMessage(data.message);
     //return <p>{message}</p>
   }
 
 
   useEffect(() => {
-
+    extractData();
   }, [props.accessToken,message])
 
 
   return (
     <div className="Likes">
       {
-        props.accessToken ? 'gggg' : "loading..."
+        message ? <p>{message}</p> : "loading..."
       }
 
     </div>
