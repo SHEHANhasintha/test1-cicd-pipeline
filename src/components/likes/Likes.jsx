@@ -38,7 +38,7 @@ const Likes = (props) => {
   useEffect(() => {
     extractDiscription(props,setMessage);
     extractLikesAndImages(props,setLikes,setImage);
-  }, [props])
+  }, [props.accessToken])
 
 
   return (

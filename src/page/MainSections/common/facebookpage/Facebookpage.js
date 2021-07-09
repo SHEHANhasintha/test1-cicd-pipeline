@@ -110,7 +110,7 @@ function Facebookpage(props) {
         accessTokenPage ? <p>page token page: {accessTokenPage}</p> : 'loading...'
       }
       
-      <Likes accessToken={accessTokenClient} value={'1314251948683709_1406401799468723'}/>
+      <Likes accessToken={accessTokenClient} accessTokenPage={accessTokenPage} value={'1314251948683709_1406401799468723'}/>
       
       <input type="text" id="fname" name="fname" value="1314251948683709_1406401799468723"/>
 
