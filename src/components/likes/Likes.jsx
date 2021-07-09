@@ -26,7 +26,7 @@ const Likes = (props) => {
           getPageToken(props.accessToken)
             .then((data) => {
               setPageToken(data.access_token)
-              return;
+              return <span>pageToken: {pageToken}</span>;
             })
         }
       }
