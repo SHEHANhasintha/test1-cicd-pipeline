@@ -34,7 +34,7 @@ const Likes = (props) => {
   return (
     <div className="Likes">
       {
-        props.accessToken ? extractData() : "loading..."
+        props.accessToken ? 'gggg' : "loading..."
       }
 
     </div>
