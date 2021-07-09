@@ -7,10 +7,10 @@ import { getData } from "../../helpers/helper";
 const Likes = (props) => {
   let [pageToken,setPageToken] = useState(false);
 
-  const getPageToken = (accessToken) => {
+  const getPageToken = () => {
     console.log("llllllllllllllllllllllllll")
-    console.log(2, accessToken)
-    if (accessToken) {
+    console.log(2, props.accessToken)
+    if (props.accessToken) {
       let accessUrl = `https://graph.facebook.com/v11.0/1314251948683709?fields=access_token&access_token=${accessToken}`
       getData(accessUrl)
         .then((data) => {
@@ -22,15 +22,14 @@ const Likes = (props) => {
   
   }
 
-  // getPageToken(props.accessToken);
+  useEffect(() => {
+    getPageToken();
+  },[props.accessToken])
+  
 
   return (
     <div className="Likes">
-      {
-        () => {
-          getPageToken(props.accessToken)
-        }
-      }
+
       <p>pageToken: {pageToken}</p>;
     </div>
   );
