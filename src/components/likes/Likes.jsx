@@ -18,8 +18,8 @@ const Likes = (props) => {
 
     // console.log(data.message);
     // return <p>{data.message}</p>;
-    setMessage(data.message);
-    return <p>{message}</p>
+    // setMessage(data.message);
+    //return <p>{message}</p>
   }
 
 
